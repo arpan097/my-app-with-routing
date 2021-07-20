@@ -1,12 +1,12 @@
 <div class="container"  style="width:550px">
-  <div style="text-align:center;">
+  <div >
     <h3><b> Login </b></h3>
   </div>
-  <div ng-controller="RegisterController">
+  <div ng-controller="RegisterController" >
     <div style="text-align: right;">
       <a href="#"></a>  
     </div>
-    <form role="form" class="container" class="well" #addForm="ngForm">
+    <form role="form" class="well" #addForm="ngForm">
       <div class="form-group">
         <label for="mobile-email"> Mobile/Email: </label>
         <input type="text" ngModel name="mobile-email" id="mobile-email" class="form-control" placeholder="Enter Name/Email ">
@@ -15,8 +15,10 @@
         <label for="password"> Password: </label>
         <input type="password" ngModel name="password" id="password" class="form-control" placeholder="Enter Password ">
       </div>
-      <input style="float: right;"  type="button" class="btn btn-primary" class="btn btn-primary" value="Login">
-      <input  routerLink="/register"  style="float: left;" type="button" class="btn btn-primary" class="btn btn-primary" value="Register"> 
+      <div class="form-group">
+        <input routerLink="/register"  type="button"  class="btn btn-primary" value="Register"> 
+        <input type="button" class="btn btn-primary" value="Login" style="float: right;">
+      </div>
     </form>
     </div>
   </div>

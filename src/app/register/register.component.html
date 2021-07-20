@@ -1,42 +1,42 @@
 <div class="container"  style="width:550px">
-    <div style="text-align:center;">
-      <h3><b>User Registraion Form </b></h3>
-    </div>
-    <div ng-controller="RegisterController">
-      <div style="text-align: right;">
-        <a href="#"></a>  
-      </div>
-      <form role="form" class="well" #addForm="ngForm">
-        <div class="form-group">
-          <label for="name"> Name: </label>
-          <input type="text" ngModel name="name" id="name" class="form-control" placeholder="Enter Name ">
-        </div>
-        <div class="form-group">
-          <label for="email"> Email: </label>
-          <input type="email" ngModel name="email" id="email" class="form-control" placeholder="Enter Email ">
-        </div>
-        <div class="form-group">
-          <label for="jobtitle"> Job Title: </label>
-          <input type="text" ngModel name="jobTitle" id="jobtitle" class="form-control" placeholder="Enter Job Title ">
-        </div>
-        <div class="form-group">
-          <label for="phone"> Phone: </label>
-          <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter Phone ">
-        </div>
-        <br>
-        <div class="form-group">
-          <label for="imgurl"> Profile Image Url: </label>
-          <input type="text" id="imageurl" name="imageUrl" class="form-control" placeholder="Enter Profile Image Url ">
-        </div>
-        <div class="form-group">
-          <label for="empcode"> Employee Code: </label>
-          <input type="text" id="empcode" ame="empCode" class="form-control" placeholder="Enter Employee Code ">
-        </div>
-        <input type="hidden">
-  
-        <input type="button" id="add-employee-form"  class="btn btn-primary"
-          class="btn btn-primary" value="Submit">
-        <input style="float: right;" type="button" class="btn btn-primary" class="btn btn-primary" value="Login">
-      </form>
-    </div>
+  <div style="text-align:center;">
+    <h3><b>User Registraion Form </b></h3>
   </div>
+  <div ng-controller="RegisterController">
+    <div style="text-align: right;">
+      <a href="#"></a>  
+    </div>
+    <form role="form" class="well" #addForm="ngForm">
+      <div class="form-group">
+        <label for="name"> Name: </label>
+        <input type="text" ngModel name="name" id="name" class="form-control" placeholder="Enter Name ">
+      </div>
+      <div class="form-group">
+        <label for="email"> Email: </label>
+        <input type="email" ngModel name="email" id="email" class="form-control" placeholder="Enter Email ">
+      </div>
+      <div class="form-group">
+        <label for="jobtitle"> Job Title: </label>
+        <input type="text" ngModel name="jobTitle" id="jobtitle" class="form-control" placeholder="Enter Job Title ">
+      </div>
+      <div class="form-group">
+        <label for="phone"> Phone: </label>
+        <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter Phone ">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="imgurl"> Profile Image Url: </label>
+        <input type="text" id="imageurl" name="imageUrl" class="form-control" placeholder="Enter Profile Image Url ">
+      </div>
+      <div class="form-group">
+        <label for="empcode"> Employee Code: </label>
+        <input type="text" id="empcode" ame="empCode" class="form-control" placeholder="Enter Employee Code ">
+      </div>
+      <input type="hidden">
+
+      <input type="button" id="add-employee-form" (click)="onAddEmployee(addForm)" class="btn btn-primary"
+        class="btn btn-primary" value="Submit">
+      <input style="float: right;" type="button" class="btn btn-primary" class="btn btn-primary" value="Login">
+    </form>
+  </div>
+</div>

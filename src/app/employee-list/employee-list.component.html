@@ -1,1 +1,93 @@
-<p>employee-list works!</p>
+<div class="container" id ="main-container" >
+    <h4 style="text-align: center;"><b>Registered Employee</b></h4>
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr class="info">
+          <th style="text-align: center;">Name</th>
+          <th style="text-align: center;"> Email</th>
+          <th style="text-align: center;">Job Title</th>
+          <th style="text-align: center;">Phone</th>
+          <th style="text-align: center;">Emp Code</th>
+          <th style="text-align: center;">Image</th>
+          <th style="text-align: center;"> Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees; let i = index">
+          <td><input [disabled]="username" value="{{ employee.name }}"></td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.jobTitle }}</td>
+          <td>{{ employee.phone }}</td>
+          <td>{{ employee.employeeCode }}</td>
+          <td> 
+            <a href=""><img   style="width: 50px; height: 50px; scale: 100%;" src="{{ employee.imageUrl }}" alt="" class="img-fluid rounded-circle w-60"></a>
+      
+        </td>
+          <td style="text-align: center;"> 
+            <a (click)="showAlertt('test')" role="button" class="btn btn-info " data-toggle="modal">edit</a> &nbsp;
+            <a style="margin-top: 5px;" (click)="onDeleteEmployee(employee.id)" role="button" class="btn btn-danger">delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div  class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Employee {{editEmployee?.name}}</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+              </div>
+              <div class="modal-body">
+                 <form #editForm="ngForm">
+                    <div class="form-group">
+                       <label for="name">Name</label>
+                       <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name">
+                    </div>
+                    <input type="hidden" ngModel="{{editEmployee?.id}}" name="id" class="form-control" id="id" placeholder="Email">
+                    <input type="hidden" ngModel="{{editEmployee?.employeeCode}}" name="userCode" class="form-control" id="userCode" placeholder="Email">
+                    <div class="form-group">
+                       <label for="email">Email Address</label>
+                       <input type="email" ngModel="{{editEmployee?.email}}" name="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                       <label for="phone">Job title</label>
+                       <input type="text" ngModel="{{editEmployee?.jobTitle}}" name="jobTitle" class="form-control" id="jobTitle" placeholder="Job title">
+                    </div>
+                    <div class="form-group">
+                       <label for="phone">Phone</label>
+                       <input type="text" ngModel="{{editEmployee?.phone}}" name="phone" class="form-control" id="phone" name="phone" placeholder="Phone">
+                    </div>
+                    <div class="form-group">
+                       <label for="phone">Image URL</label>
+                       <input type="text" ngModel="{{editEmployee?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
+                    </div>
+                    <div class="modal-footer">
+                       <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                       <button (click)="onUpdateEmloyee(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                    </div>
+                 </form>
+              </div>
+           </div>
+        </div>
+      </div>
+    <div  *ngIf="employees?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+      <div class="alert alert-info" role="alert">
+        <h4  style="text-align: center;" class="alert-heading">NO USER!</h4>
+        <p style="text-align: center;" >  No User were found.</p>
+      </div>
+    </div>
+
+   
+      <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <p>Some text in the modal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
